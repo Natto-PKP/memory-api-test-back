@@ -18,7 +18,7 @@ CREATE TABLE "board" (
 );
 
 -- cards
-CREATE TABLE "cards" (
+CREATE TABLE "card" (
   "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "board_id" INTEGER NOT NULL REFERENCES "board"("id") ON DELETE CASCADE,
   "value" TEXT NOT NULL,
