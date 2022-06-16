@@ -10,10 +10,10 @@ export default {
       WHERE 
         "id" = $1 
         AND 
-        boardId = (
+        "card_view"."boardId" = (
           SELECT "id" 
           FROM "board_view"
-          WHERE "id" = $2 AND "userID" = $3
+          WHERE "id" = $2 AND "userId" = $3
         );
     `, [cardId, boardId, userId]);
 
@@ -24,10 +24,10 @@ export default {
     const result = await database.query(`
       SELECT *
       FROM "card_view"
-      WHERE boardId = (
+      WHERE "boardId" = (
         SELECT "id" 
         FROM "board_view"
-        WHERE "id" = $1 AND "userID" = $2
+        WHERE "id" = $1 AND "userId" = $2
       );
     `, [boardId, userId]);
 

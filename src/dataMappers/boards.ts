@@ -8,12 +8,12 @@ export default {
   },
 
   getBoard: async (userId: number, boardId: number): Promise<Board> => {
-    const result = await database.query('SELECT * FROM "board_view" WHERE userId = $1 AND boardId = $2', [userId, boardId]);
+    const result = await database.query('SELECT * FROM "board_view" WHERE "userId" = $1 AND "id" = $2', [userId, boardId]);
     return result.rows[0];
   },
 
   insertBoard: async (userId: number, size: number): Promise<Board> => {
-    const result = await database.query('INSERT INTO "board_view" ("userId", "size") VALUE ($1, $2) RETURNING *', [userId, size]);
+    const result = await database.query('INSERT INTO "board_view" ("userId", "size") VALUES ($1, $2) RETURNING *', [userId, size]);
     return result.rows[0];
   },
 

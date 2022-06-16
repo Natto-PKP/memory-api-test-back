@@ -25,7 +25,7 @@ export default {
       const results = [];
       for (let i = 0; i < cards.length; i += 2) {
         const [a, b] = [cards[i], cards[i + 1]];
-        if (a.value === b.value) results.push(a.value);
+        if (a && b && a.value === b.value) results.push(a.value);
       }
 
       if (results.length === (board.size * board.size) / 2) {

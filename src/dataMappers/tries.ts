@@ -26,7 +26,7 @@ export default {
       WHERE "id" = (
         SELECT "cardId"
         FROM "try_view"
-        WHERE boardId = (
+        WHERE "try_view"."boardId" = (
           SELECT "id"
           FROM "board_view"
           WHERE "id" = $2 AND "userId" = $1
@@ -92,7 +92,7 @@ export default {
       SELECT *
       FROM "try_view"
       JOIN "card_view" ON "try_view"."cardId" = "card_view"."id"
-      WHERE boardId = (
+      WHERE "try_view"."boardId" = (
         SELECT "id"
         FROM "board_view"
         WHERE "id" = $2 AND "userId" = $1

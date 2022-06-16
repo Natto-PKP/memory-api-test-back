@@ -20,7 +20,7 @@ export default {
 
   register: async (req: Request, res: Response) => {
     const { email, password } = req.body;
-    if (!(await dataMapper.getUserByEmail(email))) throw new APIError('email is already taken', 400);
+    if (await dataMapper.getUserByEmail(email)) throw new APIError('email is already taken', 400);
 
     const result = await dataMapper.insertUser(email, await bcrypt.hash(password, 10));
     delete result.password;

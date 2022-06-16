@@ -4,7 +4,7 @@ import controllers from '../../../controllers/tries';
 import asyncHandler from '../../../helpers/asyncHandler';
 import auth from '../../../middlewares/auth';
 
-const router = Router();
+const router = Router({ mergeParams: true });
 
 router.get('/:tryId(\\d+)', auth, asyncHandler(controllers.try));
 

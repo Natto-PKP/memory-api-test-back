@@ -11,7 +11,7 @@ export default {
     const emojiSize = (size * size) / 2;
 
     const selectedEmojis = <string[]>[];
-    while (selectedEmojis.length !== emojiSize) {
+    while (selectedEmojis.length < emojiSize) {
       const randomEmoji = emojisArray[Math.floor(Math.random() * emojisArray.length)];
       if (!selectedEmojis.includes(randomEmoji)) selectedEmojis.push(randomEmoji);
     }
