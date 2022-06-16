@@ -12,8 +12,8 @@ export default {
     return result.rows[0];
   },
 
-  insertBoard: async (userId: number): Promise<Board> => {
-    const result = await database.query('INSERT INTO "board_view" ("userId") VALUE ($1) RETURNING *', [userId]);
+  insertBoard: async (userId: number, size: number): Promise<Board> => {
+    const result = await database.query('INSERT INTO "board_view" ("userId", "size") VALUE ($1, $2) RETURNING *', [userId, size]);
     return result.rows[0];
   },
 
