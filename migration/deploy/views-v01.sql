@@ -14,6 +14,7 @@ CREATE VIEW "card_view" AS
   SELECT 
     "id",
     "board_id" AS "boardId",
+    "value",
     "pos_x" AS "posX",
     "pos_y" AS "posY"
   FROM "card";

@@ -21,6 +21,7 @@ CREATE TABLE "board" (
 CREATE TABLE "cards" (
   "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "board_id" INTEGER NOT NULL REFERENCES "board"("id") ON DELETE CASCADE,
+  "value" TEXT NOT NULL,
   "pos_x" INTEGER NOT NULL,
   "pos_y" INTEGER NOT NULL,
   UNIQUE ("board_id", "pos_x", "pos_y")
